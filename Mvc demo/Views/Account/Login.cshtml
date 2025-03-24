@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Login";
+}
+<h2>Login</h2>
+@if (TempData["ErrorMessage"] != null)
+{
+    <script>
+        alert('@TempData["ErrorMessage"]');
+    </script>
+}
+<form action="/Account/Login" method="post">
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+</form>
+
+<hr>
+
+<!-- Google Login Button -->
+<a href="@Url.Action("LoginWithGoogle", "Account")" class="btn btn-danger">
+    <i class="fa fa-google"></i> Login with Google
+</a>
